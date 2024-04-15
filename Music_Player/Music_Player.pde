@@ -8,6 +8,12 @@ float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
 float playlistButtonX, playlistButtonY, playlistButtonWidth, playlistButtonHeight;
 float fastforwardX, fastforwardY, fastforwardWidth, fastforwardHeight;
 float rewindX, rewindY, rewindWidth, rewindHeight;
+float volumeSliderX, volumeSliderY, volumeSliderWidth, volumeSliderHeight;
+float progressBarX, progressBarY, progressBarWidth, progressBarHeight;
+float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+//
+color backgroundColour, darkBackground, whiteBackground;
+boolean whiteMode=false;
 //
  void setup() {
  //size(400, 500); //width, height
@@ -43,6 +49,18 @@ float rewindX, rewindY, rewindWidth, rewindHeight;
   rewindY = appHeight* 10/12;
   rewindWidth = appWidth* 1/9;
   rewindHeight = appHeight* 1/12;
+  volumeSliderX = appWidth* 0.5/9;
+  volumeSliderY = appHeight* 1/12;
+  volumeSliderWidth = appWidth* 0.2/9;
+  volumeSliderHeight = appHeight* 7/12;
+  progressBarX = appWidth* 2.2/9;
+  progressBarY = appHeight* 8.5/12;
+  progressBarWidth = appWidth* 6/12;
+  progressBarHeight = appHeight* 0.2/12;
+  quitButtonX = appWidth *8/9;
+  quitButtonY = appHeight *0/12;
+  quitButtonWidth = appWidth *1/9;
+  quitButtonHeight = appHeight *1/12;
   //Layout DIVs
   //rect(X, Y, Width, Height);
   //rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
@@ -54,19 +72,35 @@ float rewindX, rewindY, rewindWidth, rewindHeight;
   rect(playlistButtonX, playlistButtonY, playlistButtonWidth, playlistButtonHeight);
   rect(fastforwardX, fastforwardY, fastforwardWidth, fastforwardHeight);
   rect(rewindX, rewindY, rewindWidth, rewindHeight);
-  //rect(volumeSliderX, volumeSliderY, volumeSliderWidth, volumesliderHeight);
-  //rect(progressBarX, progressbarY, progressbarWidth, progressbarHeight);
+  rect(volumeSliderX, volumeSliderY, volumeSliderWidth, volumeSliderHeight);
+  rect(progressBarX, progressBarY, progressBarWidth, progressBarHeight);
+  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   //rect(playlistButtonX, playlistbuttonY, playlistbuttonWidth, playlistbuttonHeight);
-  //rect(scrollWheelX, scrollWheelY, scrollWheelWidth, scrollWheelHeight);
+  //rect(scrollBarX, scrollBarY, scrollBarWidth, scrollBarHeight);
   //rect(song1X, song1Y, song1Width, song1Height);
   //rect(song2X, song2Y, song2Width, song2Height);
   //rect(song3X, song3Y, song3Width, song3Height);
   //rect(song4X, song4Y, song4Width, song4Height);
   //rect(song5X, song5Y, song5Width, song5Height);
- }//End Setup
+  
+  //var Population
+  darkBackground = 0; //greyscale, smaller than COLOR
+  whiteBackground = 255; //greyscale, smaller than COLOR
+  whiteMode = true
+  //if (hour()>=9 && hour() <=17 ) backgroundColour = whiteBackground;
+  //if (hour() <9 && hour() >17 ) backgroundColour = darkBackground;
+  if ( whitMode==true && hour()>=9 && hour() <=17) {
+    backgroundColour = whiteBackground;
+  }
+  else {
+    backgroundColour = darkBackground;
+  }
+  //
+}//End Setup
 void draw() {
-} //End Draw
-//
+  background(backgroundColour) //greyscale
+  //rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+} //End draw
 void keyPressed() {
 } //End keyPressed
 //
