@@ -12,8 +12,10 @@ float volumeSliderX, volumeSliderY, volumeSliderWidth, volumeSliderHeight;
 float progressBarX, progressBarY, progressBarWidth, progressBarHeight;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 //
-color backgroundColour, darkBackground, whiteBackground;
-boolean whiteMode=false;
+color backgroundColour, darkBackground=0, whiteBackground=255;
+color foregroundColour;
+color white=255, yellow=#FFFF00, black=0;
+boolean whiteMode=true;
 //
  void setup() {
  //size(400, 500); //width, height
@@ -84,27 +86,35 @@ boolean whiteMode=false;
   //rect(song5X, song5Y, song5Width, song5Height);
   
   //var Population
-  darkBackground = 0; //greyscale, smaller than COLOR
-  whiteBackground = 255; //greyscale, smaller than COLOR
-  whiteMode = true
+  //whiteMode = true
   //if (hour()>=9 && hour() <=17 ) backgroundColour = whiteBackground;
   //if (hour() <9 && hour() >17 ) backgroundColour = darkBackground;
-  if ( whitMode==true && hour()>=9 && hour() <=17) {
+  if ( whiteMode==true && hour() >=9 && hour() <=17) {
     backgroundColour = whiteBackground;
-  }
-  else {
+    foregroundColour = black; //
+  }  else {
     backgroundColour = darkBackground;
+    foregroundColour = #FFFF00; //note: if ( whiteMode==true && hour() <9 && hour() >17)
+    if ( whiteMode==true && hour()>=9 && hour() <=17 ) foregroundColour = white;
   }
   //
-}//End Setup
+} //End Setup
 void draw() {
-  background(backgroundColour) //greyscale
-  //rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
-} //End draw
-void keyPressed() {
+  background(backgroundColour); //greyscale
+  fill(foregroundColour);
+  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+}  //End draw
+void keyPressed() { //Listener
+  if (key=='Q' || key=='q') exit();
+  if (key==CODED && keyCode==UP) exit();
 } //End keyPressed
 //
-void mousePressed() {
+void mousePressed() { //Listener
+  //, quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight
+  if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) 
+  {
+  exit()
+  }
 } //End mousePressed
 //
 // End MAIN Program
