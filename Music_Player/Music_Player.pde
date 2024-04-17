@@ -1,4 +1,4 @@
-//Global Variables
+ //Global Variables
 //
 //Global Variables
 int appWidth, appHeight;
@@ -14,8 +14,8 @@ float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 //
 color backgroundColour, darkBackground=0, whiteBackground=255;
 color foregroundColour;
-color white=255, yellow=#FFFF00, black=0;
-boolean whiteMode=true;
+color white=255, yellow=#FFFF00, black=0, purple=FF00FF;
+boolean whiteMode=false;
 //
  void setup() {
  //size(400, 500); //width, height
@@ -95,26 +95,38 @@ boolean whiteMode=true;
   }  else {
     backgroundColour = darkBackground;
     foregroundColour = #FFFF00; //note: if ( whiteMode==true && hour() <9 && hour() >17)
-    if ( whiteMode==true && hour()>=9 && hour() <=17 ) foregroundColour = white;
+  if ( hour()>=9 && hour() <=17 ) foregroundColour = white;
   }
   //
 } //End Setup
 void draw() {
   background(backgroundColour); //greyscale
   fill(foregroundColour);
-  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+   //
+   //Quit Button
+   fill(purple);
+   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
+   fill(yellow);
+   rect( quitButtonX+quitButtonWidth*1/7, quitButtonY+quitButtonHeight*q/7, quitButtonWidth);
+}  else {
+   fill(purple);
+}
+   fill(foregroundColour);
+   println(mouseX, mouseY)
 }  //End draw
 void keyPressed() { //Listener
   if (key=='Q' || key=='q') exit();
   if (key==CODED && keyCode==UP) exit();
+  if (key=='W' && key=='w') ;
 } //End keyPressed
 //
 void mousePressed() { //Listener
-  //, quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight
-  if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) 
-  {
-  exit()
-  }
-} //End mousePressed
+  // quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+  if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ); 
+  
+exit();
+}
+ //End mousePressed
 //
 // End MAIN Program
