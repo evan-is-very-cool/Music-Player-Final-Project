@@ -11,6 +11,9 @@ float rewindX, rewindY, rewindWidth, rewindHeight;
 float volumeSliderX, volumeSliderY, volumeSliderWidth, volumeSliderHeight;
 float progressBarX, progressBarY, progressBarWidth, progressBarHeight;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+int size;
+PFont generalFont;
+String quit="QUIT";
 //
 color backgroundColour, darkBackground=0, whiteBackground=255;
 color foregroundColour;
@@ -25,6 +28,13 @@ boolean whiteMode=false;
   //Landscape is HARDCODED
   String displayInstructions = ( appWidth >= appHeight ) ? "Good to go": "NO, WRONG";
   println(displayInstructions);
+  //Fonts from OS (Operating System)
+ String[] fontList = PFont.list(); //To list all fonts available on OS
+ printArray(fontList); //For listing all possible fonts to choose from, then createFont
+size = 55;
+generalFont = createFont("Harrington", size);
+// Tools / Create Font / Find Font / Use size field / Do not press "OK", known bug
+//
   //
   //Population
   backgroundX = appWidth*0;
@@ -108,12 +118,12 @@ void draw() {
    rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
    if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
    fill(yellow);
-   rect( quitButtonX+quitButtonWidth*1/7, quitButtonY+quitButtonHeight*q/7, quitButtonWidth);
+   rect( quitButtonX+quitButtonWidth*1/7, quitButtonY+quitButtonHeight*1/7, quitButtonWidth);
 }  else {
    fill(purple);
 }
    fill(foregroundColour);
-   println(mouseX, mouseY)
+   println(mouseX, mouseY);
 }  //End draw
 void keyPressed() { //Listener
   if (key=='Q' || key=='q') exit();
