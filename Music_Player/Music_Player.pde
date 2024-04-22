@@ -17,7 +17,7 @@ String quit="QUIT";
 //
 color backgroundColour, darkBackground=0, whiteBackground=255;
 color foregroundColour;
-color white=255, yellow=#FFFF00, black=0, purple=FF00FF;
+color white=255, black=0, purple=FF00FF, yellow=FFFF00;
 boolean whiteMode=false;
 //
  void setup() {
@@ -118,7 +118,7 @@ void draw() {
    rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
    if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) { 
    fill(yellow);
-   rect( quitButtonX+quitButtonWidth*1/7, quitButtonY+quitButtonHeight*1/7, quitButtonWidth);
+   rect(quitButtonX+quitButtonWidth*1/7, quitButtonY+quitButtonWidth*1/7, quitButtonHeight*5/7);
 }  else {
    fill(purple);
 }
