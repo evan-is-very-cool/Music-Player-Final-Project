@@ -157,19 +157,26 @@ void draw() {
 }  //End draw
 void keyPressed() { //Listener
   if (key=='Q' || key=='q') exit();
+  {
+    soundEffects_1();
+  }
   if (key==CODED && keyCode==UP) exit();
+  {
+    soundEffects_1();
+  }
   if (key=='W' && key=='w') ;
-  
+  {
+    soundEffects_1();
+  }
 } //End keyPressed
 //
 void mousePressed() { //Listener
   // quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ); 
  {
- soundEffects1.loop(0);
- delay(5000);
- exit();
+soundEffects_1();
 }
- //End mousePressed
+
+}//End mousePressed
 //
 // End MAIN Program
