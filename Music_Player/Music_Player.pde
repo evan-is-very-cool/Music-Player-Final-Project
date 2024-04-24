@@ -43,7 +43,7 @@ boolean whiteMode=false;
   //
   minim = new Minim(this);
   String extension = ".mp3";
-  String quitButtonSound = "Audio_SoundEffect_The_Simplest_Sting.mp3";
+  String quitButtonSound = "Audio_SoundEffect_The_Simplest_Sting";
   String pathwaySoundEffects = "../Audio/SoundEffects/";
   //println(pathwaySoundEffects+quitButtonSound+extension);
   String path = sketchPath(pathwaySoundEffects + quitButtonSound + extension);
