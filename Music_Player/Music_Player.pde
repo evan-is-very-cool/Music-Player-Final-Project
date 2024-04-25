@@ -1,4 +1,4 @@
-
+//library
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -14,15 +14,6 @@ AudioPlayer soundEffects1;
 AudioPlayer playList1;
 //
 int appWidth, appHeight;
-float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
-float songImageX, songImageY, songImageWidth, songImageHeight;
-float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
-float playlistButtonX, playlistButtonY, playlistButtonWidth, playlistButtonHeight;
-float fastforwardX, fastforwardY, fastforwardWidth, fastforwardHeight;
-float rewindX, rewindY, rewindWidth, rewindHeight;
-float volumeSliderX, volumeSliderY, volumeSliderWidth, volumeSliderHeight;
-float progressBarX, progressBarY, progressBarWidth, progressBarHeight;
-float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 int size;
 PFont generalFont;
 String quit="X";
@@ -96,29 +87,9 @@ generalFont = createFont("Harrington", size);
   quitButtonY = appHeight *0/12;
   quitButtonWidth = appWidth *1/9;
   quitButtonHeight = appHeight *1/12;
-  //Layout DIVs
-  //rect(X, Y, Width, Height);
-  //rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-  int centerX = appWidth*1/2;
-  int centerY = appHeight*1/2;
-  //rect(centerX*1/2, centerY*1/2, appWidth*1/2, appHeight*1/2);
-  rect(songImageX, songImageY, songImageWidth, songImageHeight);
-  rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
-  rect(playlistButtonX, playlistButtonY, playlistButtonWidth, playlistButtonHeight);
-  rect(fastforwardX, fastforwardY, fastforwardWidth, fastforwardHeight);
-  rect(rewindX, rewindY, rewindWidth, rewindHeight);
-  rect(volumeSliderX, volumeSliderY, volumeSliderWidth, volumeSliderHeight);
-  rect(progressBarX, progressBarY, progressBarWidth, progressBarHeight);
-  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
-  //rect(playlistButtonX, playlistbuttonY, playlistbuttonWidth, playlistbuttonHeight);
-  //rect(scrollBarX, scrollBarY, scrollBarWidth, scrollBarHeight);
-  //rect(song1X, song1Y, song1Width, song1Height);
-  //rect(song2X, song2Y, song2Width, song2Height);
-  //rect(song3X, song3Y, song3Width, song3Height);
-  //rect(song4X, song4Y, song4Width, song4Height);
-  //rect(song5X, song5Y, song5Width, song5Height);
-  
-  //var Population
+  //
+  DIVs();
+  //
   //whiteMode = true
   //if (hour()>=9 && hour() <=17 ) backgroundColour = whiteBackground;
   //if (hour() <9 && hour() >17 ) backgroundColour = darkBackground;
