@@ -67,7 +67,6 @@ void drawRects() {
   rect(volumeSliderX, volumeSliderY, volumeSliderWidth, volumeSliderHeight);
   rect(progressBarX, progressBarY, progressBarWidth, progressBarHeight);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
-  //rect(playlistButtonX, playlistbuttonY, playlistbuttonWidth, playlistbuttonHeight);
   //rect(scrollBarX, scrollBarY, scrollBarWidth, scrollBarHeight);
   //rect(song1X, song1Y, song1Width, song1Height);
   //rect(song2X, song2Y, song2Width, song2Height);

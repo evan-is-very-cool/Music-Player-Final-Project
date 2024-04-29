@@ -50,44 +50,6 @@ generalFont = createFont("Harrington", size);
 // Tools / Create Font / Find Font / Use size field / Do not press "OK", known bug
 //
   //
-  //Population
-  backgroundX = appWidth*0;
-  backgroundY = appHeight*0;
-  backgroundWidth = appWidth;
-  backgroundHeight = appHeight;
-  songImageX = appWidth*1/9;
-  songImageY = appHeight*1/12;
-  songImageWidth = appWidth*7/9;
-  songImageHeight = appHeight*7/12;
-  playButtonX = appWidth*4/9;
-  playButtonY = appHeight*10/12;
-  playButtonWidth = appWidth*1/9;
-  playButtonHeight = appHeight*1/12;
-  playlistButtonX = appWidth*8/9;  
-  playlistButtonY = appHeight*6/12;
-  playlistButtonWidth = appWidth*2/9;
-  playlistButtonHeight = appHeight*2/12;
-  fastforwardX = appWidth*5.5/9;
-  fastforwardY = appHeight*10/12;
-  fastforwardWidth = appWidth*1/9;
-  fastforwardHeight = appHeight*1/12;
-  rewindX = appWidth* 2.5/9;
-  rewindY = appHeight* 10/12;
-  rewindWidth = appWidth* 1/9;
-  rewindHeight = appHeight* 1/12;
-  volumeSliderX = appWidth* 0.5/9;
-  volumeSliderY = appHeight* 1/12;
-  volumeSliderWidth = appWidth* 0.2/9;
-  volumeSliderHeight = appHeight* 7/12;
-  progressBarX = appWidth* 2.2/9;
-  progressBarY = appHeight* 8.5/12;
-  progressBarWidth = appWidth* 6/12;
-  progressBarHeight = appHeight* 0.2/12;
-  quitButtonX = appWidth *8/9;
-  quitButtonY = appHeight *0/12;
-  quitButtonWidth = appWidth *1/9;
-  quitButtonHeight = appHeight *1/12;
-  //
   DIVs();
   //
   //whiteMode = true
