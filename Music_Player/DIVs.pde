@@ -17,8 +17,8 @@ void population() {
   //Population
   backgroundX = appWidth*0;
   backgroundY = appHeight*0;
-  backgroundWidth = appWidth;
-  backgroundHeight = appHeight;
+  backgroundWidth = appWidth-1;
+  backgroundHeight = appHeight-1;
   songImageX = appWidth*1/9;
   songImageY = appHeight*1/12;
   songImageWidth = appWidth*7/9;

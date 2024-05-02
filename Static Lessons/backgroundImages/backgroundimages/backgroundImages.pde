@@ -44,7 +44,7 @@ void draw() {
 void mousePressed() {
 } //end mousePressed
 //
-void keyPressed() {} //end keyPressed
+void keyPressed() {} 
  if (key =='W' || key=='w') {
  if (lightMode == false) {
    lightMode == true; //Light mode ON
@@ -52,5 +52,6 @@ void keyPressed() {} //end keyPressed
    lightMode = false; //Dark mode ON
   }
  }
+ //end keyPressed
 //
 //end main program
