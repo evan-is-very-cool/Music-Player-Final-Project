@@ -23,13 +23,12 @@ color foregroundColour;
 color white=255, black=0, purple=#FF00FF, yellow=#FFFF00;
 boolean dayMode=false;
 boolean lightMode=false;
-String dayImage = "dayImage";
-String backgroundImageName = "";
-String pathway = "../Images";
-String extensionJPG = ".jpg";
-String landscape_Square = "landscape & Square Images";
-String backgroundFileName = "";
-String path;
+//
+String pathNightBackgroundImage, pathDayBackgroundImage;
+PImage day, night;
+PImage backgroundImage;
+PImage songImage;
+float songImageRIGHT, songImageCENTERED, songImageLEFT;
 //
 void setup() {
   //size(400, 500); //width, height
@@ -58,27 +57,41 @@ void setup() {
   // Tools / Create Font / Find Font / Use size field / Do not press "OK", known bug
   //
   //
-  DIVs();
+  divs();
+String day = "day";
+String night = "night";
+String backgroundImageName = "night";
+String pathway = "../Images";
+String extensionJPG = ".jpg";
+String landscape_Square = "landscape & Square Images/";
+String portrait = "Portrait/";
+String backgroundFileName = "Background Image/";
+pathDaybackgroundImage = pathway + landscape_Square + day + ExtensionJPG;
+pathNightBackgroundImage = pathway + landscape_Square + night + extentionJPG;
+String backgroundFileName = "BackgroundImage/";
+String songImagePath = pathway + landscape_Square + + extensionJPG;
+songImage = loadImage(songImagePath);
   //
   //whiteMode = true
   //if (hour()>=9 && hour() <=17 ) backgroundColour = whiteBackground;
   //if (hour() <9 && hour() >17 ) backgroundColour = darkBackground;
-  if ( dayMode==true && hour() >=9 && hour() <=17) { //day and night mode clock
-    if(lightMode == true) {
+        if ( hour()>=9 && hour() <=17 ) dayMode = true;
+    if(lightMode == true && dayMode == true) {
     backgroundColour = whiteBackground;
     foregroundColour = black; 
-    backgroundImageName = day;
-    
-    } else {
+    backgroundImageName = loadImage(pathDayBackgroundImage);
+     } else if (lightMode==false) {
     backgroundColour = darkBackground;
-    foregroundColour = black; 
+    foregroundColour = white; 
+    backgroundImage = loadImage(pathNightBackgroundImage);
     }    
     backgroundColour = whiteBackground;
     foregroundColour = black; 
+    backgroundImage = loadImage(pathNightBackgroundImage);
   } else {
     backgroundColour = darkBackground;
-    foregroundColour = #FFFF00; //note: if ( whiteMode==true && hour() <9 && hour() >17)
-    if ( hour()>=9 && hour() <=17 ) foregroundColour = white;
+    foregroundColour = yellow; //note: if ( whiteMode==true && hour() <9 && hour() >17)
+    backgroundImage = loadImage(pathNightBackgroundImage);
   }
   //
   //soundEffects1.loop();
@@ -86,9 +99,8 @@ void setup() {
 void draw() {
   //background(backgroundColour);
   image(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
-  if (lightMode == true ) {
-    backgroundImageName = day;
-    path = pathway + landscape_Square + backgroundImageName + Extension;
+  if (lightMode == true && dayMode == true ) {
+    backgroundImageName = loadImage(pathDayBackgroundImage);
     backgroundImage = loadImage(path);
       fill(foregroundColour);
     }
@@ -123,7 +135,7 @@ void draw() {
     if (key=='W' && key=='w') ;
     {
       if (lightMode == false) {
-        lightMode == true; //Light mode ON
+        lightMode = true; //Light mode ON
       } else {
         lightMode = false; //Dark mode ON
       }
