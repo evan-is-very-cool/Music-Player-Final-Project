@@ -29,6 +29,7 @@ PImage day, night;
 PImage backgroundImage;
 PImage songImage;
 float songImageRIGHT, songImageCENTERED, songImageLEFT;
+float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 //
 void setup() {
   //size(400, 500); //width, height
@@ -56,8 +57,8 @@ void setup() {
   generalFont = createFont("Harrington", size);
   // Tools / Create Font / Find Font / Use size field / Do not press "OK", known bug
   //
-  //
-  divs();
+divs();
+//Images
 String day = "day";
 String night = "night";
 String backgroundImageName = "night";
@@ -66,8 +67,8 @@ String extensionJPG = ".jpg";
 String landscape_Square = "landscape & Square Images/";
 String portrait = "Portrait/";
 String backgroundFileName = "Background Image/";
-pathDaybackgroundImage = pathway + landscape_Square + day + ExtensionJPG;
-pathNightBackgroundImage = pathway + landscape_Square + night + extentionJPG;
+pathDayBackgroundImage = pathway + landscape_Square + day + extensionJPG;
+pathNightBackgroundImage = pathway + landscape_Square + night + extensionJPG;
 String backgroundFileName = "BackgroundImage/";
 String songImagePath = pathway + landscape_Square + + extensionJPG;
 songImage = loadImage(songImagePath);
@@ -75,18 +76,14 @@ songImage = loadImage(songImagePath);
   //whiteMode = true
   //if (hour()>=9 && hour() <=17 ) backgroundColour = whiteBackground;
   //if (hour() <9 && hour() >17 ) backgroundColour = darkBackground;
-        if ( hour()>=9 && hour() <=17 ) dayMode = true;
+    if ( hour()>=9 && hour() <=17 ) dayMode = true;
     if(lightMode == true && dayMode == true) {
     backgroundColour = whiteBackground;
     foregroundColour = black; 
     backgroundImageName = loadImage(pathDayBackgroundImage);
-     } else if (lightMode==false) {
+  } else if (lightMode==false) {
     backgroundColour = darkBackground;
     foregroundColour = white; 
-    backgroundImage = loadImage(pathNightBackgroundImage);
-    }    
-    backgroundColour = whiteBackground;
-    foregroundColour = black; 
     backgroundImage = loadImage(pathNightBackgroundImage);
   } else {
     backgroundColour = darkBackground;
@@ -100,10 +97,11 @@ void draw() {
   //background(backgroundColour);
   image(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   if (lightMode == true && dayMode == true ) {
-    backgroundImageName = loadImage(pathDayBackgroundImage);
-    backgroundImage = loadImage(path);
-      fill(foregroundColour);
-    }
+    backgroundImage = loadImage(pathDayBackgroundImage);
+  } else if (lightMode == false) {
+    backgroundImage = loadImage(pathNightBackgroundImage);
+  } else {
+    tint(255, 255, 255, 0);
     //
     //Quit Button
     fill(purple);
@@ -132,11 +130,11 @@ void draw() {
     {
       soundEffects_1();
     }
-    if (key=='W' && key=='w') ;
+    if (key=='W' && key=='w');
     {
-      if (lightMode == false) {
+     if (lightMode == false) {
         lightMode = true; //Light mode ON
-      } else {
+   } else {
         lightMode = false; //Dark mode ON
       }
     } //end dayMode
