@@ -121,6 +121,7 @@ void draw() {
     //
     //println(mouseX, mouseY);
   }//End draw
+  //
   void keyPressed() { //Listener
     if (key=='Q' || key=='q') exit();
     {
@@ -137,10 +138,11 @@ void draw() {
    } else {
         lightMode = false; //Dark mode ON
       }
-    } //end dayMode
-    // soundEffects_1();
-  
-} //End keyPressed
+    }
+    //end dayMode
+    //
+    // soundEffects_1.loop();
+  } //End keyPressed
 //
 void mousePressed() { //Listener
   // quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
