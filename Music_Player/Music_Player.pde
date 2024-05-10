@@ -24,7 +24,7 @@ color white=255, black=0, purple=#FF00FF, yellow=#FFFF00;
 boolean dayMode=false;
 boolean lightMode=false;
 //
-String pathNightBackgroundImage, pathDayBackgroundImage;
+String pathDarkBackgroundImage, pathLightBackgroundImage;
 PImage day, night;
 PImage backgroundImage;
 PImage songImage;
@@ -57,7 +57,7 @@ void setup() {
   generalFont = createFont("Harrington", size);
   // Tools / Create Font / Find Font / Use size field / Do not press "OK", known bug
   //
-divs();
+//divs();
 //Images
 String day = "day";
 String night = "night";
@@ -67,11 +67,10 @@ String extensionJPG = ".jpg";
 String landscape_Square = "landscape & Square Images/";
 String portrait = "Portrait/";
 String backgroundFileName = "Background Image/";
-pathDayBackgroundImage = pathway + landscape_Square + day + extensionJPG;
-pathNightBackgroundImage = pathway + landscape_Square + night + extensionJPG;
-String backgroundFileName = "BackgroundImage/";
-String songImagePath = pathway + landscape_Square + + extensionJPG;
-songImage = loadImage(songImagePath);
+pathLightBackgroundImage = pathway + landscape_Square + day + extensionJPG;
+pathDarkBackgroundImage = pathway + landscape_Square + night + extensionJPG;;
+//String songImagePath = pathway + landscape_Square + + extensionJPG;
+//songImage = loadImage(songImagePath);
   //
   //whiteMode = true
   //if (hour()>=9 && hour() <=17 ) backgroundColour = whiteBackground;
@@ -80,15 +79,15 @@ songImage = loadImage(songImagePath);
     if(lightMode == true && dayMode == true) {
     backgroundColour = whiteBackground;
     foregroundColour = black; 
-    backgroundImageName = loadImage(pathDayBackgroundImage);
+    backgroundImageName = loadImage (pathLightBackgroundImage);
   } else if (lightMode==false) {
     backgroundColour = darkBackground;
     foregroundColour = white; 
-    backgroundImage = loadImage(pathNightBackgroundImage);
+    backgroundImage = loadImage (pathDarkBackgroundImage);
   } else {
     backgroundColour = darkBackground;
     foregroundColour = yellow; //note: if ( whiteMode==true && hour() <9 && hour() >17)
-    backgroundImage = loadImage(pathNightBackgroundImage);
+    backgroundImage = loadImage (pathDarkBackgroundImage);
   }
   //
   //soundEffects1.loop();
@@ -97,11 +96,12 @@ void draw() {
   //background(backgroundColour);
   image(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   if (lightMode == true && dayMode == true ) {
-    backgroundImage = loadImage(pathDayBackgroundImage);
+    backgroundImage = loadImage(pathLightBackgroundImage);
   } else if (lightMode == false) {
-    backgroundImage = loadImage(pathNightBackgroundImage);
+    backgroundImage = loadImage(pathDarkBackgroundImage);
   } else {
     tint(255, 255, 255, 0);
+  }
     //
     //Quit Button
     fill(purple);
@@ -114,24 +114,25 @@ void draw() {
     }
     fill(foregroundColour);
     textAlign( CENTER, CENTER);
-    //values: [LEFT, CENTER, RIGHT];
+    //values: [LEFT, CENTER, RIGHT] & [ TOP | CENTER | BOTTOM | BASELINE ];
     size = appHeight*1/12;
     text(quit, quitButtonX+quitButtonWidth*1/9, quitButtonY+quitButtonHeight*1/12, quitButtonWidth*7/9, quitButtonHeight*9/12);
     fill(foregroundColour);
     //
     //println(mouseX, mouseY);
-  }//End draw
+    //
+   }//End draw
   //
   void keyPressed() { //Listener
-    if (key=='Q' || key=='q') exit();
+    if (key=='Q' || key=='q') 
     {
       soundEffects_1();
     }
-    if (key==CODED && keyCode==UP) exit();
+    if (key==CODED && keyCode==UP)
     {
       soundEffects_1();
     }
-    if (key=='W' && key=='w');
+    if (key=='W' && key=='w')
     {
      if (lightMode == false) {
         lightMode = true; //Light mode ON
