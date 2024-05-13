@@ -43,7 +43,7 @@ void setup() {
   minim = new Minim(this);
   String extension = ".mp3";
   String quitButtonSound = "Audio_SoundEffect_The_Simplest_Sting";
-  String pathwaySoundEffects = "../Audio/SoundEffects/";
+  String pathwayMusic = "../Audio/SoundEffects/";
   //println(pathwaySoundEffects+quitButtonSound+extension);
   String path = sketchPath(pathwaySoundEffects + quitButtonSound + extension);
   //println(path);
@@ -68,7 +68,7 @@ String landscape_Square = "landscape & Square Images/";
 String portrait = "Portrait/";
 String backgroundFileName = "Background Image/";
 pathLightBackgroundImage = pathway + landscape_Square + day + extensionJPG;
-pathDarkBackgroundImage = pathway + landscape_Square + night + extensionJPG;;
+pathDarkBackgroundImage = pathway + landscape_Square + night + extensionJPG;
 //String songImagePath = pathway + landscape_Square + + extensionJPG;
 //songImage = loadImage(songImagePath);
   //
@@ -79,7 +79,7 @@ pathDarkBackgroundImage = pathway + landscape_Square + night + extensionJPG;;
     if(lightMode == true && dayMode == true) {
     backgroundColour = whiteBackground;
     foregroundColour = black; 
-    backgroundImageName = loadImage (pathLightBackgroundImage);
+    backgroundImage = loadImage (pathLightBackgroundImage);
   } else if (lightMode==false) {
     backgroundColour = darkBackground;
     foregroundColour = white; 
@@ -102,6 +102,7 @@ void draw() {
   } else {
     tint(255, 255, 255, 0);
   }
+  image()
     //
     //Quit Button
     fill(purple);
