@@ -43,7 +43,7 @@ void setup() {
   minim = new Minim(this);
   String extension = ".mp3";
   String quitButtonSound = "Audio_SoundEffect_The_Simplest_Sting";
-  String pathwayMusic = "../Audio/SoundEffects/";
+  String pathwaySoundEffects = "../Audio/SoundEffects/";
   //println(pathwaySoundEffects+quitButtonSound+extension);
   String path = sketchPath(pathwaySoundEffects + quitButtonSound + extension);
   //println(path);
@@ -102,7 +102,7 @@ void draw() {
   } else {
     tint(255, 255, 255, 0);
   }
-  image()
+  //image();
     //
     //Quit Button
     fill(purple);
