@@ -43,8 +43,8 @@ void setup() {
 } //End setup
 //
 void draw() {
-println("Song Position", playList[currentsong].position(), "Song Length", playList[currentsong].length());
-playList1.loop(0);
+println("Song Position", playList[0].position(), "Song Length", playList[currentsong].length());
+println("Inspecting SKIP", skip);
   //
   //ERROR: only plays beginning of song before starting again
   //playList[currentSong].loop(0);
@@ -73,10 +73,25 @@ playList1.loop(0);
 } //end draw
 //
 void keyPressed() {
+ int skip = 5000; //local
+ //if (key=='H' || key=='h') skip = 5000 ;
+ //if (key=='G' || key=='g') skip = 10000 ;
+ if (key=='G' || key=='g') {
+ if (skip == 5000) {
+   skip = (playList[0].length()*0.25);
+ } else {
+   skip = 5000;
+ }
+ }
+ //println(skip);
+ //
+ if ( key=='F' || key=='f') playList[0].skip(1000) ; //skip forward 1 sec
+ if ( key=='R' || key=='r') playList[0].skip(-1000) ; //skip reverse 1 sec
+ //
  if ( key=='P' || key=='p' ) {
  //How much of the song should play before the Pause Button is actually a rewind button
- if ( playList[currentSong].isPlaying() ) { //Note, debugging: use true==true & true==false
- playList[currentSong].rewind(); //playList[currentSong].play();
+ if ( playList[0].isPlaying() ) { //Note, debugging: use true==true & true==false
+ playList[0].rewind(); //playList[currentSong].play();
  } else if (.length() < 120000) { //PAIN minutes is 2, 120 seconds, 120,000ms
  } else if (looping = false && !playList[currentSong].isPlaying() && (playList[currentSong].position()> .length()*0.75)){
    playList[currentSong].rewind();
