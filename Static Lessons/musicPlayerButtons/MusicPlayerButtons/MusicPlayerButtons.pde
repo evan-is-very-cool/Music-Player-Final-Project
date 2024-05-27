@@ -97,7 +97,7 @@ void keyPressed() {
    playList[currentSong].rewind();
   }
  } //End Play Pause Button
- if (key == 'l' || key == 'L') {
+ if (key == 'L' || key == 'l') {
    playList[currentSong].loop(1);
    looping = true;
    //End Loop Once
@@ -105,10 +105,18 @@ void keyPressed() {
   playList[currentSong].loop();
   looping = true;
   } //End Loop Infinte Times
- if( key == '' || key == '') {
+ if( key == 'S' || key == 's') {
    playList[currentSong].pause();
    playList[currentSong].rewind(); 
  }//end Stop Button
+  if (key=='M' || key=='m') {
+  if (playList[currentSong].isMuted) {
+  .unmute();
+  } else {
+  playList[currentSong].unmute();
+  }
+  playList[currentSong].mute();
+  } //end mute
 } //end keyPressed
 //
 void mousePressed() {} //end mousePressed
