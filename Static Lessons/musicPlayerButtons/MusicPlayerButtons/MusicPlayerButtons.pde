@@ -11,12 +11,17 @@ int numberSoundEffects = 4;
 int numberMusicSongs = 8; 
 AudioPlayer[] playList = new AudioPlayer[ numberMusicSongs ]; 
 AudioPlayer[] soundEffects = new AudioPlayer[ numberSoundEffects ];
+AudioMetaData[] playListMetaData;
 int currentSong = 0;
 //
 int appWidth, appHeight;
 //
 Boolean looping = false;
 //
+String testingOnly = '1';
+PFont generalFont;
+//PFont others available
+color black = #000000, white = #FFFFFF, nightInk = #FFFF00;
 void setup() {
  //size(400, 500); //width, height
  fullScreen(); //displayWidth, displayHeight
@@ -24,6 +29,9 @@ void setup() {
  appHeight = displayHeight;  //Landscape is HARDCODED
  String displayInstructions = ( appWidth >= appHeight ) ? "Good to go": "NO, WRONG";
  //println(displayInstructions);
+ //
+ //font code
+generalFont = createFont("Harrington", appHeight);
  //
  minim = new Minim(this);
  String Cycles = "Cycles";
@@ -39,6 +47,7 @@ void setup() {
  println("Absolute Pathway", pathCyclesSong);
  soundEffects[0] = minim.loadFile( pathQuitButtonSound );
  playList[0] = minim.loadFile(pathCyclesSong);
+ playListMetaData[0] = playList[0].getMetaData();
  //
 } //End setup
 //
@@ -70,6 +79,18 @@ println("Inspecting SKIP", skip);
    currentSong = currentSong + 1; //currentSong++; currentSong+=1
    playList[currentSong].play();
    }
+   //
+   //printing text to console or canvas
+   rect(width*1/4, height*0, width*1/2, height*1/10);
+   fill(White); //Ink
+   textAlign( CENTER, CENTER ); //Align X&Y, see Processing.org / Reference
+   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+   int size = 30; //Note: CS20 studies size algorithm
+   print(testingOnly);
+   println("String Variable is", testingOnly);
+   text(testingOnly, width*1/4, height*0, width*1/2, height*1/10);
+   fill(255);
+//
 } //end draw
 //
 void keyPressed() {
