@@ -11,14 +11,14 @@ int numberSoundEffects = 4;
 int numberMusicSongs = 8; 
 AudioPlayer[] playList = new AudioPlayer[ numberMusicSongs ]; 
 AudioPlayer[] soundEffects = new AudioPlayer[ numberSoundEffects ];
-AudioMetaData[] playListMetaData;
+AudioMetaData[] playListMetaData = new AudioMetaData [ numberMusicSongs ];
 int currentSong = 0;
 //
 int appWidth, appHeight;
 //
 Boolean looping = false;
 //
-String testingOnly = '1';
+// testingOnly = '1';
 PFont generalFont;
 //PFont others available
 color black = #000000, white = #FFFFFF, nightInk = #FFFF00;
@@ -86,9 +86,10 @@ println("Inspecting SKIP", skip);
    textAlign( CENTER, CENTER ); //Align X&Y, see Processing.org / Reference
    //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
    int size = 30; //Note: CS20 studies size algorithm
-   print(testingOnly);
-   println("String Variable is", testingOnly);
-   text(testingOnly, width*1/4, height*0, width*1/2, height*1/10);
+   textFont(generalFont, size);
+   //printArray(playListMetaData[0]);
+   println("Title is", playListMetaData[0].title);
+   text(playListMetaData[0].title, width*1/4, height*0, width*1/2, height*1/10);
    fill(255);
 //
 } //end draw
