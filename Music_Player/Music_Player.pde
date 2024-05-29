@@ -27,7 +27,7 @@ boolean lightMode=false;
 String pathDarkBackgroundImage, pathLightBackgroundImage;
 PImage day, night;
 PImage backgroundImage;
-PImage songImage;
+//PImage songImage;
 float songImageRIGHT, songImageCENTERED, songImageLEFT;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 //
@@ -62,14 +62,13 @@ void setup() {
 String day = "day";
 String night = "night";
 String backgroundImageName = "night";
-String pathway = "../Images";
+String pathway = "../Images/";
 String extensionJPG = ".jpg";
-String landscape_Square = "landscape & Square Images/";
-String portrait = "Portrait/";
+String landscape_Square = "landscape & Square Images/";;
 String backgroundFileName = "Background Image/";
 pathLightBackgroundImage = pathway + landscape_Square + day + extensionJPG;
 pathDarkBackgroundImage = pathway + landscape_Square + night + extensionJPG;
-//String songImagePath = pathway + landscape_Square + + extensionJPG;
+//String songImagePath = pathway + landscape_Square + night + extensionJPG;
 //songImage = loadImage(songImagePath);
   //
   //whiteMode = true
@@ -94,7 +93,6 @@ pathDarkBackgroundImage = pathway + landscape_Square + night + extensionJPG;
 } //End Setup
 void draw() {
   //background(backgroundColour);
-  image(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   if (lightMode == true && dayMode == true ) {
     backgroundImage = loadImage(pathLightBackgroundImage);
   } else if (lightMode == false) {
@@ -102,7 +100,7 @@ void draw() {
   } else {
     tint(255, 255, 255, 0);
   }
-  //image();
+  image(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
     //
     //Quit Button
     fill(purple);
@@ -143,7 +141,7 @@ void draw() {
     }
     //end dayMode
     //
-    // soundEffects_1.loop();
+    //soundEffects_1.loop();
   } //End keyPressed
 //
 void mousePressed() { //Listener

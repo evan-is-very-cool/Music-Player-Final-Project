@@ -56,8 +56,8 @@ void population() {
 void drawRects() {
   //rect(X, Y, Width, Height);
   //rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-  int centerX = appWidth*1/2;
-  int centerY = appHeight*1/2;
+  //int centerX = appWidth*1/2;
+  //int centerY = appHeight*1/2;
   //rect(centerX*1/2, centerY*1/2, appWidth*1/2, appHeight*1/2);
   rect(songImageX, songImageY, songImageWidth, songImageHeight);
   rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
