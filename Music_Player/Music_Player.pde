@@ -61,7 +61,6 @@ void setup() {
 //Images
 String day = "day";
 String night = "night";
-String backgroundImageName = "night";
 String pathway = "../Images/";
 String extensionJPG = ".jpg";
 String landscape_Square = "landscape & Square Images/";;
@@ -100,7 +99,8 @@ void draw() {
   } else {
     tint(255, 255, 255, 0);
   }
-  image(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
+    //songImage
+    //image(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
     //
     //Quit Button
     fill(purple);
