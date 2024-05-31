@@ -35,6 +35,8 @@ generalFont = createFont("Harrington", appHeight);
  //
  minim = new Minim(this);
  String Cycles = "Cycles";
+ String GhostWalk = "Ghost_Walk";
+ String Groove = "Audio_MusicDownload_Grove";
  String extension = ".mp3";
  String quitButtonSound = "Audio_SoundEffect_The_Simplest_Sting";
  String pathwayMusic = "../../../Audio/Music/";
@@ -42,12 +44,16 @@ generalFont = createFont("Harrington", appHeight);
  //println(pathwaySoundEffects+quitButtonSound+extension);
  //println ( "Relative Pathway:", pathwayMusic+groove+extension );
  println("Relative Pathway:", pathwayMusic+Cycles+extension);
- String pathQuitButtonSound = sketchPath(pathwaySoundEffects+quitButtonSound+extension);
+ String pathQuitButtonSound = sketchPath(pathwaySoundEffects + quitButtonSound + extension);
  String pathCyclesSong = sketchPath(pathwayMusic + Cycles + extension);
+ String pathGrooveSong = sketchPath(pathwayMusic + Groove + extension);
+ String pathGhostWalkSong = sketchPath(pathwayMusic + GhostWalk + extension);
  println("Absolute Pathway", pathCyclesSong);
  soundEffects[0] = minim.loadFile( pathQuitButtonSound );
  playList[0] = minim.loadFile(pathCyclesSong);
  playListMetaData[0] = playList[0].getMetaData();
+ //
+ playList[0].loop(0);
  //
 } //End setup
 //
@@ -91,6 +97,7 @@ println("Inspecting SKIP", skip);
    println("Title is", playListMetaData[0].title);
    text(playListMetaData[0].title, width*1/4, height*0, width*1/2, height*1/10);
    fill(255);
+
 //
 } //end draw
 //
