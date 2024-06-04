@@ -52,8 +52,30 @@ generalFont = createFont("Harrington", appHeight);
  soundEffects[0] = minim.loadFile( pathQuitButtonSound );
  playList[0] = minim.loadFile(pathCyclesSong);
  playListMetaData[0] = playList[0].getMetaData();
- //
  playList[0].loop(0);
+ //
+ filePathNameMusic[currentSong+=1] = pathwayMusic + Cycles + extension;
+ //println( currentSong, filePathNameMusic[currentSong] );
+ filePathNameMusic[currentSong+=1] = pathwayMusic + GhostWalk + extension;
+ //println( currentSong, filePathNameMusic[currentSong] );  
+ filePathNameMusic[currentSong+=1] = pathwayMusic + Groove + extension;
+ //println( currentSong, filePathNameMusic[currentSong] );
+ //
+ filePathNameSoundEffect[0] = pathQuitButtonSound;
+ //println ( "Absolute Pathway:", filePathNameSoundEffect[0] ); //pathQuitButtonSound
+ soundEffects = minim.loadFile( filePathNameSoundEffect[0] );
+ //
+ //Random Start Prototype
+ //println( "Current Song, Random Number:", int ( random(numberMusicSongs-numberMusicSongs, numberMusicSongs) ) );
+ //
+ //Note: Music starts before CANVAS ... Purpose of Player
+ //Note: See Easter Egg about Time-On and Looping Songs
+ println(currentSong, filePathNameMusic[currentSong]);
+ currentSong = numberMusicSongs-numberMusicSongs; //Resetting the Defaults
+ playList =  minim.loadFile( filePathNameMusic[currentSong] ); // "" is compiler error
+ //Note: music player "plays" one loaded song at a time
+ playList.loop(0); //Testing Only
+ //
  //
 } //End setup
 //
@@ -102,6 +124,15 @@ println("Inspecting SKIP", skip);
 } //end draw
 //
 void keyPressed() {
+ if ( key=='A' || key=='a') { //Randomly Pick another song in the Play List
+ currentSong = int ( random( numberMusicSongs-numberMusicSongs, numberMusicSongs ) );
+ println( "Current Song, Random Number:", currentSong );
+ playList.pause(); //Note: computer plays harddrive file,
+ playList.rewind(); //     mulitple files will play at the same time
+ playList =  minim.loadFile( filePathNameMusic[currentSong] );
+ playList.play();
+  }
+ //
  int skip = 5000; //local
  //if (key=='H' || key=='h') skip = 5000 ;
  //if (key=='G' || key=='g') skip = 10000 ;
