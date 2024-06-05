@@ -9,6 +9,8 @@ import ddf.minim.ugens.*;
 Minim minim; //creates object to access all functions
 int numberSoundEffects = 4;
 int numberMusicSongs = 8; 
+String[] filePathNameMusic = new String[numberMusicSongs];
+String[] filePathNameSoundEffects = new String[numberSoundEffects];
 AudioPlayer[] playList = new AudioPlayer[ numberMusicSongs ]; 
 AudioPlayer[] soundEffects = new AudioPlayer[ numberSoundEffects ];
 AudioMetaData[] playListMetaData = new AudioMetaData [ numberMusicSongs ];
@@ -145,7 +147,23 @@ void keyPressed() {
  }
  //println(skip);
  //
- if ( key=='F' || key=='f') playList[0].skip(1000) ; //skip forward 1 sec
+ if ( key=='F' || key=='f') 
+ if(playList.position()<10000) ;
+ if(playList.position()>=10000 && playList.position()<=playList.length()*0.75) playList[0].skip(skip) ;
+ if(playList.position()>playList.length()*0.75) {
+ playList.pause(); //Note: computer plays harddrive file,
+ playList.rewind();
+ if(currentSong >= numberMusicSongs) {
+ currentSong = 0;
+ } else {
+ currentSong++;
+ }
+ currentSong++ ;
+ println( "Current Song changed to:", currentSong );
+ playList =  minim.loadFile( filePathNameMusic[currentSong] );
+ playList.play();
+ }
+ println ( "New Value of SKIP", skip, "Position:", playList.position(), "Crossed Last 75%", playList.position()>playList.length()*0.75, "\t\tLast 75% starts at:", playList.length()*0.75, "Song Ends at:", playList.length() ); 
  if ( key=='R' || key=='r') playList[0].skip(-1000) ; //skip reverse 1 sec
  //
  if ( key=='P' || key=='p' ) {
